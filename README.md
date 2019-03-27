@@ -80,7 +80,7 @@ Download the latest release from [here](https://github.com/ermanimer/s7_client/r
         | 9 | S7Client is busy. |
 
 * #### Close()
-    Disposes the tcp client instance and requests that the underlying tcp connection be closed. Returns a bool indicating if the task is successfully completed.
+    Disposes the tcp client instance and requests that the underlying tcp connection be closed. Returns a bool indicating whether the task is successfully completed.
     * ##### Example:
         ```c#
         private void buttonClose_Click(object sender, EventArgs e) {
@@ -146,7 +146,7 @@ Download the latest release from [here](https://github.com/ermanimer/s7_client/r
         | 10 | S7Client is not connected to a remote device. |
     
 * #### Write(ushort dataBlockNumber, uint startingAddress, byte[] bytesToWrite)
-    Writes data to the remote device's specified data block. Returns a bool indicating if the task is successfully completed.
+    Writes data to the remote device's specified data block. Returns a bool indicating whether the task is successfully completed.
     * ##### Parameters:
         * **dataBlockNumber**: Number of the data block.
         * **startingAddress**: Starting address of the data.

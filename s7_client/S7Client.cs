@@ -134,7 +134,7 @@ namespace s7_client {
 
         public byte[] Read(ushort dataBlockNumber, uint startingAddress, ushort byteCount) {
             if(Busy) {
-                throw new S7ClientException(10, "S7Client is busy.");
+                throw new S7ClientException(9, "S7Client is busy.");
             }
             if(!Connected) {
                 throw new S7ClientException(10, "S7Client is not connected to a remote device.");
@@ -189,10 +189,10 @@ namespace s7_client {
         public bool Write(ushort dataBlockNumber, uint startingAddress, byte[] bytesToWrite) {
             int byteCount = bytesToWrite.Length;
             if(Busy) {
-                throw new S7ClientException(10, "S7Client is busy.");
+                throw new S7ClientException(9, "S7Client is busy.");
             }
             if(!Connected) {
-                throw new S7ClientException(11, "S7Client is not connected to a remote device.");
+                throw new S7ClientException(10, "S7Client is not connected to a remote device.");
             }
             if(byteCount < 2 || byteCount > PduLength - 35 || byteCount % 2 != 0) {
                 throw new S7ClientException(6, "Byte count is out of range.");

@@ -61,7 +61,7 @@ Download the latest release from [here](https://github.com/ermanimer/s7_client/r
         ```c#
         private void buttonConnect_Click(object sender, EventArgs e) {
             try {
-                //connect to the remote device
+                //connect to remote device
                 bool result = s7Client.Connect();
 
                 //print result

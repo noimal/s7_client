@@ -3,6 +3,15 @@
 ## Overview
 s7_client is a simple and fast .Net library which communicates with Siemens S7 devices using Siemens S7 Protocol.
 
+s7_client reads data from the specified data block and writes data to the specified data block. The specified data blocks's protection settings must allow full access and the optimized acces option must be disabled.
+
+## Supported Data Types
+| Data Type | Description |
+| :-------- | :---------- |
+| ushort | Unsigned 16-bit integer |
+| uint | Unsigned 32-bit integer |
+| float | 32-bir floating point number |
+
 ## Installation
 Download the latest release from [here](https://github.com/ermanimer/s7_client/releases "Releases") and add reference to your project or run the following command in Nuget Package Manager Console.
 
@@ -93,4 +102,9 @@ Download the latest release from [here](https://github.com/ermanimer/s7_client/r
         | Exception Code | Exception Message |
         |:--------------:| :---------------- |
         | 10 | ModbusTcpClient is busy. |
+
+* #### Read(ushort dataBlockNumber, uint startingAddress, ushort byteCount)
+    Reads data from the remote device. Returns a byte array indicating each data starting from the first data.
+    
+    to be completed...
     

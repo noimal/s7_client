@@ -35,7 +35,7 @@ Download the latest release from [here](https://github.com/ermanimer/s7_client/r
         | Cpu | Rack | Slot | Description |
         | :---| :--: | :--: | :---------- |
         | S7 300 | 0 | 2 | Always |
-        | S7 400 | - | - | Follow the hardware configuration. |
+        | S7 400 | - | - | Follow the hardware configuration |
         | S7 1200 | 0 | 0 | Or 0, 1 |
         | S7 1500 | 0 | 0 | Or 0, 1 |
         

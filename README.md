@@ -6,7 +6,7 @@
 ## Overview
 s7_client is a simple and fast .Net library which communicates with Siemens S7 devices using Siemens S7 Protocol.
 
-s7_client reads data from the specified data block and writes data to the specified data block. The specified data blocks's protection settings must allow full access and the optimized acces option must be disabled.
+s7_client reads data from the specified data block and writes data to the specified data block. The specified data block's protection settings must allow full access and the optimized acces option must be disabled.
 
 s7client is the synchronous version of [async_s7_client](https://github.com/ermanimer/async_s7_client) and it is designed to be used with Timers and BackgroundWorkers.
 
@@ -15,7 +15,7 @@ s7client is the synchronous version of [async_s7_client](https://github.com/erma
 | :-------- | :---------- |
 | ushort | Unsigned 16-bit integer |
 | uint | Unsigned 32-bit integer |
-| float | 32-bir floating point number |
+| float | 32-bit floating point number |
 
 ## Installation
 Download the latest release from [here](https://github.com/ermanimer/s7_client/releases "Releases") and add reference to your project or run the following command in Nuget Package Manager Console.
@@ -155,7 +155,7 @@ Download the latest release from [here](https://github.com/ermanimer/s7_client/r
     * ##### Parameters:
         * **dataBlockNumber**: Number of the data block.
         * **startingAddress**: Starting address of the data.
-        * **bytesToWrite**: Bytes of data to write.
+        * **bytesToWrite**: Bytes of data.
     * ##### Example:
         ```c#
         private void buttonWrite_Click(object sender, EventArgs e) {
@@ -225,4 +225,4 @@ All S7ClientException codes and messages.
     | Write | Writes 204 bytes below 10 milliseconds. |
     
  ## References
- * **Snap7** : This code implements a small amount of the native S7 protocol which is completely covered in Snap7. Snap7 is a great open soruce project created by Dave Nardella. You can visit [Snap7 Homepage](http://snap7.sourceforge.net/) for more information.
+ * **Snap7** : This code implements a small amount of S7 protocol which is completely covered in Snap7. Snap7 is a great open soruce project created by Dave Nardella. You can visit [Snap7 Homepage](http://snap7.sourceforge.net/) for more information.

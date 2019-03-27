@@ -1,9 +1,14 @@
 # Siemens S7 Client Library For .Net
 
+![GitHub Downloads](https://img.shields.io/github/downloads/ermanimer/s7_client/total.svg?color=%4caf50&label=GitHub%20Downloads&style=flat-square)
+![Nuget Total Downloads](https://img.shields.io/nuget/dt/s7_client.svg?color=%4caf50&label=Nuget%20Total%20Downloads&style=flat-square)
+
 ## Overview
 s7_client is a simple and fast .Net library which communicates with Siemens S7 devices using Siemens S7 Protocol.
 
 s7_client reads data from the specified data block and writes data to the specified data block. The specified data blocks's protection settings must allow full access and the optimized acces option must be disabled.
+
+s7client is the synchronous version of [async_s7_client](https://github.com/ermanimer/async_s7_client) and it is designed to be used with Timers and BackgroundWorkers.
 
 ## Supported Data Types
 | Data Type | Description |

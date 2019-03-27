@@ -120,7 +120,7 @@ namespace s7_client {
 
         public bool Close() {
             if(Busy) {
-                throw new S7ClientException(0, "S7Client is busy.");
+                throw new S7ClientException(10, "S7Client is busy.");
             }
             if(networkStream != null) {
                 networkStream.Close();

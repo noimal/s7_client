@@ -68,7 +68,7 @@ Download the latest release from [here](https://github.com/ermanimer/s7_client/r
         }
         ```
     * ##### Exceptions:
-        Throws only ModbusTcpClientException.
+        Throws only S7ClientException.
         
         | Exception Code | Exception Message |
         |:--------------:| :---------------- |
@@ -97,14 +97,50 @@ Download the latest release from [here](https://github.com/ermanimer/s7_client/r
         }
         ```
     * ##### Exceptions:
-        Throws only ModbusTcpClientException.
+        Throws only S7ClientException.
         
         | Exception Code | Exception Message |
         |:--------------:| :---------------- |
-        | 10 | ModbusTcpClient is busy. |
+        | 10 | S7Client is busy. |
 
 * #### Read(ushort dataBlockNumber, uint startingAddress, ushort byteCount)
-    Reads data from the remote device. Returns a byte array indicating each data starting from the first data.
-    
-    to be completed...
+    Reads data from the remote device's specified data block. Returns a byte array indicating each data starting from the first data.
+    * ##### Parameters:
+        * **dataBlockNumber**: Number of the data block where the data is stored.
+        * **startingAddress**: Starting address of the data.
+        * **byteCount**: Byte count of the data to read.
+    * ##### Example:
+        ```c#
+        private void buttonRead_Click(object sender, EventArgs e) {
+            try {
+                //read 10 bytes from data block 1, 10 bytes includes one ushort (16-bit unsigned integer),
+                //one uint (32-bit unsigned integer) and one float (32-bit floating point number)
+                byte[] readBytes = s7Client.Read(1, 0, 10);
+
+                //print ushort
+                ushort _ushort = s7Client.GetUShort(readBytes, 0);
+                Debug.WriteLine($"ushort : {_ushort.ToString()}");
+
+                //print uint
+                uint _uint = s7Client.GetUInt(readBytes, 2);
+                Debug.WriteLine($"uint : {_uint.ToString()}");
+
+                //print float
+                float _float = s7Client.GetFloat(readBytes, 6);
+                Debug.WriteLine($"float : {_float.ToString()}");
+            }
+            catch(S7ClientException s7ClientException) {
+                Debug.WriteLine(s7ClientException.ToString());
+            }
+        }
+        ```
+    * ##### Exceptions:
+        Throws only S7ClientException.
+        
+        | Exception Code | Exception Message |
+        |:--------------:| :---------------- |
+        | 6 | Byte count is out of range. |
+        | 7 | Reading failed. |
+        | 10 | S7Client is busy. |
+        | 11 | S7Client is not connected to a remote device. |
     

@@ -113,8 +113,9 @@ Download the latest release from [here](https://github.com/ermanimer/s7_client/r
         ```c#
         private void buttonRead_Click(object sender, EventArgs e) {
             try {
-                //read 10 bytes from data block 1, 10 bytes includes one ushort (16-bit unsigned integer),
-                //one uint (32-bit unsigned integer) and one float (32-bit floating point number)
+                //read ten bytes from data block 1, starting from address 0. Ten bytes include 
+                //one ushort (16-bit unsigned integer), one uint (32-bit unsigned integer) and 
+                //one float (32-bit floating point number)
                 byte[] readBytes = s7Client.Read(1, 0, 10);
 
                 //print ushort

@@ -23,7 +23,7 @@ namespace s7_client {
 
         public bool Connect() {
             if(Busy) {
-                throw new S7ClientException(10, "S7Client is busy.");
+                throw new S7ClientException(9, "S7Client is busy.");
             }
             Busy = true;
             try {
@@ -120,7 +120,7 @@ namespace s7_client {
 
         public bool Close() {
             if(Busy) {
-                throw new S7ClientException(10, "S7Client is busy.");
+                throw new S7ClientException(9, "S7Client is busy.");
             }
             if(networkStream != null) {
                 networkStream.Close();
@@ -137,7 +137,7 @@ namespace s7_client {
                 throw new S7ClientException(10, "S7Client is busy.");
             }
             if(!Connected) {
-                throw new S7ClientException(11, "S7Client is not connected to a remote device.");
+                throw new S7ClientException(10, "S7Client is not connected to a remote device.");
             }
             if(byteCount < 2 || byteCount > PduLength - 18 || byteCount % 2 != 0) {
                 throw new S7ClientException(6, "Byte count is out of range.");
@@ -195,7 +195,7 @@ namespace s7_client {
                 throw new S7ClientException(11, "S7Client is not connected to a remote device.");
             }
             if(byteCount < 2 || byteCount > PduLength - 35 || byteCount % 2 != 0) {
-                throw new S7ClientException(8, "Byte count is out of range.");
+                throw new S7ClientException(6, "Byte count is out of range.");
             }
             int requestSize = 35 + byteCount;
             byte[] writeRequest = new byte[requestSize];
@@ -240,7 +240,7 @@ namespace s7_client {
             networkStream.Write(writeRequest, 0, writeRequest.Length);
             int receivedByteCount = networkStream.Read(response, 0, response.Length);
             if(receivedByteCount != 22 || response[21] != 255) {
-                throw new S7ClientException(9, "Writing failed.");
+                throw new S7ClientException(8, "Writing failed.");
             }
             return true;
         }

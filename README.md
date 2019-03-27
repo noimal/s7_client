@@ -77,7 +77,7 @@ Download the latest release from [here](https://github.com/ermanimer/s7_client/r
         | 3 | Network stream failed. |
         | 4 | Iso connection failed. |
         | 5 | Pdu negotiation failed. |
-        | 10 | S7Client is busy. |
+        | 9 | S7Client is busy. |
 
 * #### Close()
     Disposes the tcp client instance and requests that the underlying tcp connection be closed. Returns a bool indicating if the task is successfully completed.
@@ -101,14 +101,14 @@ Download the latest release from [here](https://github.com/ermanimer/s7_client/r
         
         | Exception Code | Exception Message |
         |:--------------:| :---------------- |
-        | 10 | S7Client is busy. |
+        | 9 | S7Client is busy. |
 
 * #### Read(ushort dataBlockNumber, uint startingAddress, ushort byteCount)
     Reads data from the remote device's specified data block. Returns a byte array indicating each data starting from the first data.
     * ##### Parameters:
-        * **dataBlockNumber**: Number of the data block where the data is stored.
+        * **dataBlockNumber**: Number of the data block.
         * **startingAddress**: Starting address of the data.
-        * **byteCount**: Byte count of the data to read.
+        * **byteCount**: Byte count of the data.
     * ##### Example:
         ```c#
         private void buttonRead_Click(object sender, EventArgs e) {
@@ -142,6 +142,80 @@ Download the latest release from [here](https://github.com/ermanimer/s7_client/r
         |:--------------:| :---------------- |
         | 6 | Byte count is out of range. |
         | 7 | Reading failed. |
-        | 10 | S7Client is busy. |
-        | 11 | S7Client is not connected to a remote device. |
+        | 9 | S7Client is busy. |
+        | 10 | S7Client is not connected to a remote device. |
     
+* #### Write(ushort dataBlockNumber, uint startingAddress, byte[] bytesToWrite)
+    Writes data to the remote device's specified data block. Returns a bool indicating if the task is successfully completed.
+    * ##### Parameters:
+        * **dataBlockNumber**: Number of the data block.
+        * **startingAddress**: Starting address of the data.
+        * **bytesToWrite**: Bytes of data to write.
+    * ##### Example:
+        ```c#
+        private void buttonWrite_Click(object sender, EventArgs e) {
+            try {
+                //write ten bytes to data block 1, starting from address 0. Ten bytes include 
+                //one ushort (16-bit unsigned integer), one uint (32-bit unsigned integer) and 
+                //one float (32-bit floating point number)
+                byte[] bytesToWrite = new byte[10];
+
+                //bytes of ushort
+                ushort _ushort = 1000;
+                s7Client.SetUshort(bytesToWrite, 0, _ushort);
+
+                //bytes of uint
+                uint _uint = 100000;
+                s7Client.SetUInt(bytesToWrite, 2, _uint);
+
+                //bytes of float
+                float _float = 3.14f;
+                s7Client.SetFloat(bytesToWrite, 6, _float);
+
+                bool result = s7Client.Write(1, 0, bytesToWrite);
+
+                //print result
+                Debug.WriteLine(result.ToString());
+            }
+            catch(S7ClientException s7ClientException) {
+                Debug.WriteLine(s7ClientException.ToString());
+            }
+        }
+        ```
+    * ##### Exceptions:
+        Throws only S7ClientException.
+        
+        | Exception Code | Exception Message |
+        |:--------------:| :---------------- |
+        | 6 | Byte count is out of range. |
+        | 8 | Writing failed. |
+        | 9 | S7Client is busy. |
+        | 10 | S7Client is not connected to a remote device. |
+  
+## Exceptions
+All S7ClientException codes and messages.
+
+| Exception Code | Exception Message |
+|:--------------:| :---------------- |
+| 1 | Hostname or port is not valid. |
+| 2 | Tcp connection failed.  |
+| 3 | Network stream failed. |
+| 4 | Iso connection failed. |
+| 5 | Pdu negotiation failed. |
+| 6 | Byte count is out of range. |
+| 7 | Reading failed. |
+| 8 | Writing failed. |
+| 9 | S7Client is busy. |
+| 10 | S7Client is not connected to a remote device. |
+
+## Tests
+* #### Test 01:
+    | Cpu | Model | CPU Version | Test Date |
+    | :-- | :---: | :---------: | :-------: |
+    | S7 1200 | 1214C | V4.2 | 27.03.2019 |
+    
+    | Function Name | Result |
+    | :------------ | :----- |
+    | Read | |
+    | Write | |
+

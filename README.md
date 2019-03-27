@@ -25,9 +25,9 @@ Download the latest release from [here](https://github.com/ermanimer/s7_client/r
         * **rack**: Rack number of the remote device.
         * **slot** : Slot number of the remote device.
         
-        Rack and slot numbers for supported CPUs:
+        Rack and slot numbers for supported Cpus:
         
-        | CPU | Rack | Slot | Description |
+        | Cpu | Rack | Slot | Description |
         | :---| :--: | :--: | :---------- |
         | S7 300 | 0 | 2 | Always |
         | S7 400 | - | - | Follow the hardware configuration. |
@@ -216,6 +216,9 @@ All S7ClientException codes and messages.
     
     | Function Name | Result |
     | :------------ | :----- |
-    | Read | |
-    | Write | |
+    | Read | Reads 222 bytes below 10 milliseconds. |
+    | Write | Writes 204 bytes below 10 milliseconds. |
+    
+ ## References
+ * **Snap7** : This code implements small amount of the native S7 protocol which is completely covered in project Snap7. Snap7 is a great open soruce project created by Dave Nardella. You can visit [Snap7 Homepage](http://snap7.sourceforge.net/) for more information.
 

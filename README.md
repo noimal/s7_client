@@ -6,9 +6,11 @@
 ## Overview
 s7_client is a simple and fast .Net library which communicates with Siemens S7 devices using Siemens S7 Protocol.
 
-s7_client reads and writes data to the specified data block. The data block's protection settings must allow full access and the optimized acces option must be disabled.
-
 s7client is the synchronous version of [async_s7_client](https://github.com/ermanimer/async_s7_client) and it is designed to be used with Timers and BackgroundWorkers.
+
+## PLC Settings For Data Access
+* S7 300/400 : Default settings allow full access for these cpus.
+* S7 1200/1500 : Only global data blocks can be accessed. The optimized block access option must be turned off. The access level must be full and connection mechanism must allow GET/PUT.
 
 ## Supported Data Types
 | Data Type | Description |

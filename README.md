@@ -222,8 +222,8 @@ All S7ClientException codes and messages.
     
     | Function Name | Result |
     | :------------ | :----- |
-    | Read | Reads 222 bytes below 10 milliseconds. |
-    | Write | Writes 204 bytes below 10 milliseconds. |
+    | Read | Reads 222 bytes in under 10 milliseconds. |
+    | Write | Writes 204 bytes in under 10 milliseconds. |
     
  ## References
  * **Snap7** : This code implements a small amount of S7 protocol which is completely covered in Snap7. Snap7 is a great open source project created by Dave Nardella. You can visit [Snap7 Homepage](http://snap7.sourceforge.net/) for more information.

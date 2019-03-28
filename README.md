@@ -6,7 +6,7 @@
 ## Overview
 s7_client is a simple and fast .Net library which communicates with Siemens S7 devices using Siemens S7 Protocol.
 
-s7_client reads data from the specified data block and writes data to the specified data block. The specified data block's protection settings must allow full access and the optimized acces option must be disabled.
+s7_client reads and writes data to the specified data block. The data block's protection settings must allow full access and the optimized acces option must be disabled.
 
 s7client is the synchronous version of [async_s7_client](https://github.com/ermanimer/async_s7_client) and it is designed to be used with Timers and BackgroundWorkers.
 
@@ -26,7 +26,7 @@ Download the latest release from [here](https://github.com/ermanimer/s7_client/r
 * #### S7Client(string ipAddress, ushort port, ushort rack, ushort slot)
     * ##### Parameters:
         * **ipAddress**: Ip address of the remote device.
-        * **port**: Port of the remote device. The default port is 102 for S7 Protocol.
+        * **port**: Port of the remote device. The default port is 102 for Siemens S7 Protocol.
         * **rack**: Rack number of the remote device.
         * **slot** : Slot number of the remote device.
         

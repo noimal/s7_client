@@ -1,6 +1,5 @@
 # Siemens S7 Client Library For .Net
 
-![GitHub Downloads](https://img.shields.io/github/downloads/ermanimer/s7_client/total.svg?color=%4caf50&label=GitHub%20Downloads&style=flat-square)
 ![Nuget Total Downloads](https://img.shields.io/nuget/dt/s7_client.svg?color=%4caf50&label=Nuget%20Total%20Downloads&style=flat-square)
 
 ## Overview

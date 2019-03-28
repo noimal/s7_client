@@ -93,7 +93,7 @@ Download the latest release from [here](https://github.com/ermanimer/s7_client/r
         private void buttonClose_Click(object sender, EventArgs e) {
             try {
                 //close s7 client
-                bool result = modbusTcpClient.Close();
+                bool result = s7Client.Close();
 
                 //print result
                 Debug.WriteLine(result.ToString());
@@ -227,4 +227,4 @@ All S7ClientException codes and messages.
     | Write | Writes 204 bytes below 10 milliseconds. |
     
  ## References
- * **Snap7** : This code implements a small amount of S7 protocol which is completely covered in Snap7. Snap7 is a great open soruce project created by Dave Nardella. You can visit [Snap7 Homepage](http://snap7.sourceforge.net/) for more information.
+ * **Snap7** : This code implements a small amount of S7 protocol which is completely covered in Snap7. Snap7 is a great open source project created by Dave Nardella. You can visit [Snap7 Homepage](http://snap7.sourceforge.net/) for more information.

@@ -10,7 +10,7 @@ s7client is the synchronous version of [async_s7_client](https://github.com/erma
 
 ## PLC Settings For Data Access
 * **S7 300, S7 400**: Default settings allow full access for these cpus.
-* **S7 1200, S71500**: Only global data blocks can be accessed. The optimized block access option must be turned off. The access level must be full and connection mechanism must allow GET/PUT.
+* **S7 1200, S7 1500**: Only global data blocks can be accessed. The optimized block access option must be turned off. The access level must be full and connection mechanism must allow GET/PUT.
 
 ## Supported Data Types
 | Data Type | Description |

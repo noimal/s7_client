@@ -1,6 +1,6 @@
 # Siemens S7 Client Library For .Net
 
-![Nuget Total Downloads](https://buildstats.info/nuget/s7_client)
+[![Nuget Total Downloads](https://buildstats.info/nuget/s7_client)](https://www.nuget.org/packages/s7_client)
 
 ## Overview
 s7_client is a simple and fast .Net library which communicates with Siemens S7 devices using Siemens S7 Protocol.
